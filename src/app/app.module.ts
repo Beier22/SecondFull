@@ -11,12 +11,14 @@ import {RouterModule} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {FormsModule} from '@angular/forms';
 import { PostLoginComponent } from './post-login/post-login.component';
+import { CreateComponent } from './user/create/create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FrontComponent,
-    PostLoginComponent
+    PostLoginComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

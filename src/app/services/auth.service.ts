@@ -11,7 +11,7 @@ export class AuthService {
 
   constructor(
     private afa: AngularFireAuth,
-    private route: Router
+    private router: Router
   ) {
     this.userData = afa.authState;
   }
@@ -19,6 +19,7 @@ export class AuthService {
   SignUp(email: string, password: string) {
     this.afa.auth.createUserWithEmailAndPassword(email, password).then(res => {
       console.log('You are successfully signed up!', res);
+      this.router.navigate(['']);
     }).catch(err => {
       console.log('Something is wrong:', err.message);
     });
@@ -27,13 +28,18 @@ export class AuthService {
   SignIn(email: string, password: string) {
     this.afa.auth.signInWithEmailAndPassword(email, password).then(res => {
       console.log('You are succesfully logged in!');
-      this.route.navigate(['home']);
+      this.router.navigate(['home']);
     }).catch(err => {
       console.log('Something is wrong:', err.message);
     });
   }
 
   SignOut() {
-    this.afa.auth.signOut().then();
+    this.afa.auth.signOut().then(res => {
+      console.log('You are successfully signed out!', res);
+      this.router.navigate(['']);
+    }).catch(err => {
+      console.log('Something is wrong:', err.message);
+    });
   }
 }
