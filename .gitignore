@@ -42,4 +42,8 @@ e2e/*.map
 .runtimeconfig.json
 .firebase/
 
+### Additional ###
+/functions/secret.json
+/src/environments
+
 # End of https://www.gitignore.io/api/angular,firebase
